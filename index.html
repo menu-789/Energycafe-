@@ -11,182 +11,89 @@
 
 <style>
 :root{
- --bg:#031f20;
- --teal:#08776e;
- --mint:#27d7c3;
- --light:#eafffb;
- --muted:#a9d2ca;
- --glass:rgba(255,255,255,.085);
- --border:rgba(135,240,220,.22);
+ --bg:#031f20;--teal:#08776e;--mint:#27d7c3;
+ --light:#eafffb;--muted:#a9d2ca;
+ --glass:rgba(255,255,255,.085);--border:rgba(135,240,220,.22);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:145px}
 body{
- margin:0;
- font-family:Vazirmatn,sans-serif;
- color:var(--light);
- background:
- radial-gradient(circle at 10% 5%,#126c66 0,transparent 30%),
+ margin:0;font-family:Vazirmatn,sans-serif;color:var(--light);
+ background:radial-gradient(circle at 10% 5%,#126c66 0,transparent 30%),
  radial-gradient(circle at 90% 35%,#07524d 0,transparent 30%),
  linear-gradient(145deg,#02191b,#063c39,#021f20);
- min-height:100vh;
- padding-bottom:110px;
+ min-height:100vh;padding-bottom:110px;
 }
-button,input,select{font-family:inherit}
+button,input,select,textarea{font-family:inherit}
 header{text-align:center;padding:32px 15px 22px}
 .logo{font-size:42px;font-weight:900;letter-spacing:-2px}
 .logo span{color:var(--mint)}
 .sub{font-size:13px;font-weight:800;letter-spacing:8px;margin-top:-5px}
 .tagline{color:#8ee9dc;font-size:12px;margin-top:12px}
-.welcome{
- margin:8px 15px 18px;padding:22px;
- border:1px solid var(--border);border-radius:24px;
- background:var(--glass);backdrop-filter:blur(18px);
- box-shadow:0 12px 35px #0004;
-}
+.welcome{margin:8px 15px 18px;padding:22px;border:1px solid var(--border);border-radius:24px;background:var(--glass);backdrop-filter:blur(18px);box-shadow:0 12px 35px #0004}
 .welcome h2{margin:0 0 8px;font-size:21px}
 .welcome p{color:var(--muted);font-size:13px;margin:0;line-height:2}
 .search-wrap{padding:0 15px 15px}
 .search-box{position:relative;max-width:700px;margin:auto}
-.search-box input{
- width:100%;padding:15px 48px 15px 15px;
- border:1px solid var(--border);border-radius:16px;
- background:#ffffff12;color:white;outline:none;font-size:14px;
-}
+.search-box input{width:100%;padding:15px 48px 15px 15px;border:1px solid var(--border);border-radius:16px;background:#ffffff12;color:white;outline:none;font-size:14px}
 .search-box input:focus{border-color:var(--mint);box-shadow:0 0 0 3px #27d7c322}
 .search-box input::placeholder{color:#a9d2ca}
 .search-icon{position:absolute;right:17px;top:13px;font-size:20px}
-.categories{
- position:sticky;top:0;z-index:5;
- display:flex;overflow-x:auto;gap:9px;
- padding:13px 15px;background:#032d2beF;
- backdrop-filter:blur(18px);
- scrollbar-width:none;border-bottom:1px solid #ffffff12;
-}
+.categories{position:sticky;top:0;z-index:5;display:flex;overflow-x:auto;gap:9px;padding:13px 15px;background:#032d2beF;backdrop-filter:blur(18px);scrollbar-width:none;border-bottom:1px solid #ffffff12}
 .categories::-webkit-scrollbar{display:none}
-.cat{
- flex-shrink:0;border:1px solid var(--border);
- color:white;background:#ffffff0d;
- padding:9px 16px;border-radius:30px;
- cursor:pointer;font-size:12px;transition:.2s;
-}
+.cat{flex-shrink:0;border:1px solid var(--border);color:white;background:#ffffff0d;padding:9px 16px;border-radius:30px;cursor:pointer;font-size:12px;transition:.2s}
 .cat.active{background:var(--mint);color:#003a36;font-weight:900}
 .menu-section{padding:8px 13px 15px;scroll-margin-top:75px}
-.section-head{
- display:flex;align-items:center;justify-content:space-between;
- margin:17px 4px 13px;
-}
+.section-head{display:flex;align-items:center;justify-content:space-between;margin:17px 4px 13px}
 .section-head h2{font-size:19px;margin:0}
 .section-head span{font-size:11px;color:var(--muted)}
-.grid{
- display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
- gap:12px;
-}
-.card{
- min-width:0;overflow:hidden;
- border:1px solid var(--border);border-radius:20px;
- background:linear-gradient(145deg,rgba(255,255,255,.14),rgba(255,255,255,.045));
- backdrop-filter:blur(15px);
- box-shadow:0 8px 25px #001b1a55;
- transition:transform .2s,border-color .2s;
-}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.card{min-width:0;overflow:hidden;border:1px solid var(--border);border-radius:20px;background:linear-gradient(145deg,rgba(255,255,255,.14),rgba(255,255,255,.045));backdrop-filter:blur(15px);box-shadow:0 8px 25px #001b1a55;transition:transform .2s,border-color .2s}
 .card:active{transform:scale(.985)}
 .image-wrap{height:135px;background:#0a4945;position:relative;overflow:hidden}
 .card img{width:100%;height:100%;object-fit:cover;display:block}
-.image-fallback{
- display:none;width:100%;height:100%;align-items:center;
- justify-content:center;color:#91cfc4;font-size:12px;
- background:linear-gradient(135deg,#0b514b,#062f30);
-}
+.image-fallback{display:none;width:100%;height:100%;align-items:center;justify-content:center;color:#91cfc4;font-size:12px;background:linear-gradient(135deg,#0b514b,#062f30)}
 .info{padding:11px}
 .name{font-size:13px;font-weight:900;line-height:1.8}
 .desc{font-size:10px;color:var(--muted);margin:3px 0 7px}
 .price{color:#8df3e4;font-weight:900;font-size:13px;margin:7px 0}
-.variant{
- width:100%;padding:8px;margin:3px 0 7px;
- border-radius:10px;border:1px solid var(--border);
- color:white;background:#073b39;font-size:11px;outline:none;
-}
+.variant{width:100%;padding:8px;margin:3px 0 7px;border-radius:10px;border:1px solid var(--border);color:white;background:#073b39;font-size:11px;outline:none}
 .variant option{background:#073b39;color:white}
-.add{
- width:100%;border:1px solid #64ead8;border-radius:11px;
- padding:10px 5px;color:#eafffb;
- background:linear-gradient(110deg,#159b90,#08716b);
- font-weight:800;font-size:12px;cursor:pointer;
-}
+.add{width:100%;border:1px solid #64ead8;border-radius:11px;padding:10px 5px;color:#eafffb;background:linear-gradient(110deg,#159b90,#08716b);font-weight:800;font-size:12px;cursor:pointer}
 .add:disabled{opacity:.4;cursor:not-allowed}
-.empty-search{
- display:none;text-align:center;color:var(--muted);
- padding:45px 15px;line-height:2;
-}
-.no-products{display:none}
-.bottom{
- position:fixed;bottom:10px;left:12px;right:12px;z-index:8;
- border:1px solid #70ead555;border-radius:19px;padding:11px 13px;
- background:#063e3cef;backdrop-filter:blur(20px);
- display:flex;align-items:center;justify-content:space-between;gap:10px;
- box-shadow:0 8px 30px #0007;
-}
+.empty-search{display:none;text-align:center;color:var(--muted);padding:45px 15px;line-height:2}
+.bottom{position:fixed;bottom:10px;left:12px;right:12px;z-index:8;border:1px solid #70ead555;border-radius:19px;padding:11px 13px;background:#063e3cef;backdrop-filter:blur(20px);display:flex;align-items:center;justify-content:space-between;gap:10px;box-shadow:0 8px 30px #0007}
 .total{font-size:11px;color:var(--muted)}
 .total strong{display:block;color:white;font-size:15px}
-.bottom button{
- border:0;border-radius:13px;padding:12px 17px;
- background:var(--mint);color:#003d38;font-weight:900;
- cursor:pointer;
-}
-.modal{
- display:none;position:fixed;inset:0;background:#000b;
- z-index:20;padding:12px;align-items:flex-end;
-}
+.bottom button{border:0;border-radius:13px;padding:12px 17px;background:var(--mint);color:#003d38;font-weight:900;cursor:pointer}
+.modal{display:none;position:fixed;inset:0;background:#000b;z-index:20;padding:12px;align-items:flex-end}
 .modal.show{display:flex}
-.box{
- width:100%;max-height:85vh;overflow:auto;
- background:#07423f;border:1px solid #7ce8d7;
- border-radius:23px;padding:19px;
-}
+.box{width:100%;max-height:85vh;overflow:auto;background:#07423f;border:1px solid #7ce8d7;border-radius:23px;padding:19px}
 .box h2{margin:0 0 16px;font-size:19px}
-.close{
- float:left;background:transparent;color:white;border:0;
- font-size:25px;cursor:pointer;
-}
-.item{
- display:flex;justify-content:space-between;align-items:center;
- padding:12px 0;border-bottom:1px solid #ffffff22;gap:8px;
-}
+.close{float:left;background:transparent;color:white;border:0;font-size:25px;cursor:pointer}
+.item{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid #ffffff22;gap:8px}
 .item small{color:var(--muted)}
 .qty{display:flex;align-items:center;gap:9px}
-.qty button{
- background:#1caaa0;color:white;border:0;border-radius:8px;
- padding:5px 10px;cursor:pointer;
-}
+.qty button{background:#1caaa0;color:white;border:0;border-radius:8px;padding:5px 10px;cursor:pointer}
 .cart-empty{text-align:center;color:var(--muted);padding:20px}
 .checkout-note{font-size:11px;color:var(--muted);line-height:2}
-.checkout-btn{width:100%;margin-top:10px}
 .checkout-fields{display:grid;gap:9px;margin-top:12px}
-.checkout-fields input,.checkout-fields textarea{
- width:100%;padding:12px;border:1px solid var(--border);border-radius:11px;
- background:#ffffff10;color:white;outline:none;font:inherit;font-size:13px;
-}
+.checkout-fields input,.checkout-fields textarea{width:100%;padding:12px;border:1px solid var(--border);border-radius:11px;background:#ffffff10;color:white;outline:none;font:inherit;font-size:13px}
 .checkout-fields input::placeholder,.checkout-fields textarea::placeholder{color:var(--muted)}
 .checkout-fields input:focus,.checkout-fields textarea:focus{border-color:var(--mint)}
-#checkoutMessage{min-height:24px}
+#checkoutMessage{min-height:24px;font-size:12px;line-height:2;color:#aaffed}
+.checkout-btn{width:100%;margin-top:10px}
 footer{text-align:center;color:#79b9ad;font-size:11px;padding:25px}
 @media(min-width:650px){
- header{padding-top:42px}
- .welcome{max-width:1000px;margin:10px auto 20px}
+ header{padding-top:42px}.welcome{max-width:1000px;margin:10px auto 20px}
  .search-wrap{padding-left:25px;padding-right:25px}
  .grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
  .menu-section{max-width:1100px;margin:auto;padding:12px 20px 20px}
- .image-wrap{height:185px}
- .info{padding:14px}
- .name{font-size:15px}
+ .image-wrap{height:185px}.info{padding:14px}.name{font-size:15px}
 }
-@media(min-width:1000px){
- .grid{grid-template-columns:repeat(4,minmax(0,1fr))}
-}
+@media(min-width:1000px){.grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
 </style>
 </head>
-
 <body>
 
 <header>
@@ -198,6 +105,7 @@ footer{text-align:center;color:#79b9ad;font-size:11px;padding:25px}
 <section class="welcome">
  <h2>به انرژی پلاس خوش آمدید ☕</h2>
  <p>طعم مورد علاقه‌ات رو انتخاب کن، محصولات منو رو ببین و سفارش خودت رو به سبد خرید اضافه کن.</p>
+ <p id="connectionStatus" aria-live="polite">در حال اتصال به منو...</p>
 </section>
 
 <div class="search-wrap">
@@ -208,18 +116,12 @@ footer{text-align:center;color:#79b9ad;font-size:11px;padding:25px}
 </div>
 
 <nav class="categories" id="categories"></nav>
-
 <main id="menu"></main>
 <div class="empty-search" id="emptySearch">محصولی با این مشخصات پیدا نشد.<br>عبارت دیگری جستجو کن.</div>
-
 <footer>ENERGY+ CAFE · تجربه‌ای متفاوت از طعم و انرژی</footer>
 
 <div class="bottom">
- <div class="total">
-  سبد خرید شما
-  <strong id="total">۰ تومان</strong>
-  <span id="count">۰ محصول</span>
- </div>
+ <div class="total">سبد خرید شما<strong id="total">۰ تومان</strong><span id="count">۰ محصول</span></div>
  <button onclick="openCart()">مشاهده سبد خرید 🛒</button>
 </div>
 
@@ -230,14 +132,26 @@ footer{text-align:center;color:#79b9ad;font-size:11px;padding:25px}
   <div id="cartItems"></div>
   <hr style="border-color:#ffffff22">
   <h3 id="finalTotal">۰ تومان</h3>
-  <p class="checkout-note">برای ثبت نهایی سفارش، پس از آماده شدن اتصال سفارش‌گیری، این قسمت به شماره تماس یا پنل سفارش کافه متصل می‌شود.</p>
-  <button class="add checkout-btn" onclick="alert('اتصال ثبت سفارش در مرحله بعد فعال می‌شود.')">ثبت سفارش</button>
+
+  <div class="checkout-fields">
+   <input id="customerName" type="text" maxlength="100" placeholder="نام شما" autocomplete="name" required>
+   <input id="customerPhone" type="tel" maxlength="20" placeholder="شماره تماس" autocomplete="tel" required>
+   <textarea id="customerNote" rows="2" maxlength="500" placeholder="توضیحات سفارش (اختیاری)"></textarea>
+  </div>
+  <p class="checkout-note">پس از ثبت سفارش، اطلاعات برای سیستم کافه ارسال می‌شود.</p>
+  <p id="checkoutMessage" role="status" aria-live="polite"></p>
+  <button class="add checkout-btn" id="checkoutButton" onclick="submitOrder()">ثبت نهایی سفارش</button>
  </div>
 </div>
 
 <script>
-const API_BASE = "https://exclusive-surfing-refers-carlo.trycloudflare.com";
+"use strict";
+
+/* آدرس API هر بار از فایل تنظیمات GitHub خوانده می‌شود. */
+const CONFIG_URL = "./api-config.json";
+let API_BASE = "";
 let apiConnected = false;
+
 let categories=[
  {id:"c1",name:"بار گرم بر پایه اسپرسو"},
  {id:"c2",name:"بار گرم"},
@@ -259,7 +173,6 @@ let products=[
 {c:"c1",n:"رومانو",p:140000,f:"romano.jpg"},
 {c:"c1",n:"کاپوچینو",p:240000,f:"cappuccino.jpg"},
 {c:"c1",n:"کن پانا",p:180000,f:"con_panna.jpg"},
-
 {c:"c2",n:"هات چاکلت",p:250000,f:"01_hot_chocolate.png"},
 {c:"c2",n:"پینک چاکلت",p:245000,f:"02_pink_chocolate.png"},
 {c:"c2",n:"چی پف چاکلت",p:275000,f:"03_chip_puff_chocolate.png"},
@@ -271,7 +184,6 @@ let products=[
 {c:"c2",n:"شیر نوتلا",p:290000,f:"09_nutella_milk.png"},
 {c:"c2",n:"کاپوچینو",p:240000,f:"10_cappuccino.png"},
 {c:"c2",n:"مارشمالو چاکلت",p:295000,f:"11_marshmallow_chocolate.png"},
-
 {c:"c3",n:"دمنوش مخصوص",p:175000,f:"01_special_herbal_tea.png"},
 {c:"c3",n:"سرماخوردگی",p:170000,f:"02_cold_relief_herbal_tea.png"},
 {c:"c3",n:"دمنوش آنیل",p:170000,f:"03_anil_herbal_tea.png"},
@@ -281,7 +193,6 @@ let products=[
 {c:"c3",n:"دمنوش اعصاب",p:170000,f:"07_relaxing_herbal_tea.png"},
 {c:"c3",n:"دمنوش میوه‌ای",p:185000,f:"08_fruity_herbal_tea.png"},
 {c:"c3",n:"دمنوش نعنا فلفلی",p:145000,f:"09_peppermint_tea.png"},
-
 {c:"c4",n:"چای کوهی",f:"01_mountain_tea_chai_koohi.png",v:[["تک‌نفره",180000],["دونفره",220000]]},
 {c:"c4",n:"به و سیب",f:"02_quince_apple_tea.png",v:[["تک‌نفره",160000],["دونفره",200000]]},
 {c:"c4",n:"به لیمو",f:"03_lemon_verbena_tea.png",v:[["تک‌نفره",150000],["دونفره",190000]]},
@@ -291,7 +202,6 @@ let products=[
 {c:"c4",n:"چای دارچین",f:"07_cinnamon_tea.png",v:[["تک‌نفره",140000],["دونفره",180000]]},
 {c:"c4",n:"چای زنجبیل",f:"08_ginger_tea.png",v:[["تک‌نفره",190000],["دونفره",195000]]},
 {c:"c4",n:"چای زعفران",f:"09_saffron_tea.png",v:[["تک‌نفره",170000],["دونفره",195000]]},
-
 {c:"c5",n:"شیک شکلات",p:257000,f:"chocolate.jpg"},
 {c:"c5",n:"شیک نوتلا",p:278000,f:"nutella.jpg"},
 {c:"c5",n:"شیک لوتوس",p:285000,f:"lotus.jpg"},
@@ -299,7 +209,6 @@ let products=[
 {c:"c5",n:"شیک بادام زمینی",p:267000,f:"peanut_butter.jpg"},
 {c:"c5",n:"شیک توت فرنگی",p:225000,f:"strawberry.jpg"},
 {c:"c5",n:"شیک طالبی",p:248000,f:"melon.jpg"},
-
 {c:"c6",n:"آیس آمریکانو",p:190000,f:"iced_americano.jpg"},
 {c:"c6",n:"آیس موکا",p:270000,f:"iced_mocha.jpg"},
 {c:"c6",n:"آیس کارامل ماکیاتو",p:280000,f:"iced_caramel_macchiato.jpg"},
@@ -307,7 +216,6 @@ let products=[
 {c:"c6",n:"آووکاتو کلاسیک",p:265000,f:"classic_affogato.jpg"},
 {c:"c6",n:"آووکاتو انرژی+",p:260000,f:"energy_affogato.jpg"},
 {c:"c6",n:"آیس رومانو",p:228000,f:"iced_romano.jpg"},
-
 {c:"c7",n:"لیموناد",p:230000,f:"lemonade.jpg"},
 {c:"c7",n:"موهیتو",p:240000,f:"mojito.jpg"},
 {c:"c7",n:"بلو اسکای",p:258000,f:"blue_sky.jpg"},
@@ -319,20 +227,16 @@ let products=[
 {c:"c7",n:"زمرد",p:277000,f:"emerald.jpg"},
 {c:"c7",n:"رد موهیتو",p:270000,f:"red_mojito.jpg"},
 {c:"c7",n:"سینکچر انرژی+",p:240000,f:"energy_signature.jpg"},
-
 {c:"c8",n:"آب انار",p:240000,f:"pomegranate_juice.jpg"},
 {c:"c8",n:"آب پرتقال",p:220000,f:"orange_juice.jpg"},
 {c:"c8",n:"آب زنجبیل",p:170000,f:"ginger_juice.jpg"},
-
 {c:"c9",n:"کیک شکلاتی",p:260000,f:"chocolate_cake.jpg"},
 {c:"c9",n:"کوکی",p:95000,f:"cookie.jpg"},
 {c:"c9",n:"کیک روز",p:290000,f:"cake_of_the_day.jpg"},
-
 {c:"c10",n:"قهوه ۱۰۰٪ روبوستا",f:"robusta_100_coffee.jpg",v:[["تک",100000],["دبل",130000]]},
 {c:"c10",n:"قهوه ۷۰/۳۰",f:"coffee_blend_70_30.jpg",v:[["تک",120000],["دبل",140000]]},
 {c:"c10",n:"قهوه ترک",f:"turkish_coffee.jpg",v:[["تک",180000]]},
 {c:"c10",n:"قهوه دله",f:"dallah_coffee.jpg",v:[]},
-
 {c:"c11",n:"شیر موز",p:220000,f:"banana_milk.jpg"},
 {c:"c11",n:"شیر خرما",p:220000,f:"date_milk.jpg"},
 {c:"c11",n:"شربت گلاب زعفران",p:100000,f:"saffron_rosewater_syrup.jpg"},
@@ -344,147 +248,100 @@ let products=[
 {c:"c11",n:"آب معدنی",p:20000,f:"mineral_water.jpg"}
 ];
 
-// مسیرهای موقت تصاویر؛ بعداً با آدرس مخزن GitHub جایگزین می‌شوند.
 const imageFolders={
- c1:"images/category-01/",
- c2:"images/category-02/",
- c3:"images/category-03/",
- c4:"images/category-04/",
- c5:"images/category-05/",
- c6:"images/category-06/",
- c7:"images/category-07/",
- c8:"images/category-08/",
- c9:"images/category-09/",
- c10:"images/category-10/",
- c11:"images/category-11/"
+ c1:"images/category-01/",c2:"images/category-02/",c3:"images/category-03/",
+ c4:"images/category-04/",c5:"images/category-05/",c6:"images/category-06/",
+ c7:"images/category-07/",c8:"images/category-08/",c9:"images/category-09/",
+ c10:"images/category-10/",c11:"images/category-11/"
 };
 
-const money=n=>new Intl.NumberFormat("fa-IR").format(n)+" تومان";
+const money=n=>new Intl.NumberFormat("fa-IR").format(Number(n)||0)+" تومان";
 const cart={};
-let activeCategory="all";
-let searchText="";
+let activeCategory="all",searchText="";
+
+function setStatus(message,good=false){
+ const el=document.getElementById("connectionStatus");
+ if(el){el.textContent=message;el.style.color=good?"#8df3e4":"#ffd4a8";}
+}
+
+function safeImage(image,fallback,c){
+ if(image && /^https?:\/\//i.test(image))return image;
+ if(image && !image.startsWith("data:") && !image.startsWith("//"))return image;
+ return (imageFolders[c]||"")+fallback;
+}
+
+function getVariants(p){
+ if(Array.isArray(p.v))return p.v;
+ if(p.p!==undefined && p.p!==null)return [["معمولی",Number(p.p)]];
+ return [];
+}
 
 function renderCategories(){
  const nav=document.getElementById("categories");
  nav.innerHTML=`<button class="cat ${activeCategory==="all"?"active":""}" onclick="showAll()">همه منو</button>`+
- categories.map(c=>`
- <button class="cat ${activeCategory===c.id?"active":""}" onclick="goCategory('${c.id}')">${c.name}</button>
- `).join("");
+ categories.map(c=>`<button class="cat ${activeCategory===c.id?"active":""}" onclick="goCategory('${c.id}')">${c.name}</button>`).join("");
 }
 
 function showAll(){
- activeCategory="all";
- renderCategories();
- document.getElementById("search").value="";
- searchText="";
- renderMenu();
- window.scrollTo({top:0,behavior:"smooth"});
+ activeCategory="all";renderCategories();
+ document.getElementById("search").value="";searchText="";
+ renderMenu();window.scrollTo({top:0,behavior:"smooth"});
 }
 
 function goCategory(id){
- activeCategory=id;
- searchText="";
+ activeCategory=id;searchText="";
  document.getElementById("search").value="";
- renderCategories();
- renderMenu();
+ renderCategories();renderMenu();
  const section=document.getElementById(id);
  if(section)section.scrollIntoView({behavior:"smooth",block:"start"});
-}
-
-function getVariants(p){
- if(p.v)return p.v;
- if(p.p)return [["معمولی",p.p]];
- return [];
 }
 
 function renderMenu(){
  const menu=document.getElementById("menu");
  menu.innerHTML="";
  let visibleCount=0;
-
  categories.forEach(cat=>{
-  const list=products.filter(p=>
-   p.c===cat.id &&
-   (activeCategory==="all"||activeCategory===cat.id) &&
-   (searchText===""||p.n.toLowerCase().includes(searchText.toLowerCase()))
-  );
-
+  const list=products.filter(p=>p.c===cat.id&&
+   (activeCategory==="all"||activeCategory===cat.id)&&
+   (searchText===""||p.n.toLowerCase().includes(searchText.toLowerCase())));
   if(!list.length)return;
   visibleCount+=list.length;
-
   const section=document.createElement("section");
-  section.className="menu-section";
-  section.id=cat.id;
-
-  section.innerHTML=`
-   <div class="section-head">
-    <h2>${cat.name}</h2>
-    <span>${new Intl.NumberFormat("fa-IR").format(list.length)} محصول</span>
-   </div>
-   <div class="grid">
-    ${list.map(p=>productCard(p)).join("")}
-   </div>
-  `;
+  section.className="menu-section";section.id=cat.id;
+  section.innerHTML=`<div class="section-head"><h2>${cat.name}</h2><span>${new Intl.NumberFormat("fa-IR").format(list.length)} محصول</span></div><div class="grid">${list.map(p=>productCard(p)).join("")}</div>`;
   menu.appendChild(section);
  });
-
  document.getElementById("emptySearch").style.display=visibleCount?"none":"block";
 }
 
 function productCard(p){
- const variants=getVariants(p);
- const hasPrice=variants.length>0;
- const priceText=hasPrice?
-  (variants.length===1?money(variants[0][1]):"انتخاب قیمت و حجم"):
-  "قیمت اعلام نشده";
-
- const img=p.image || ((imageFolders[p.c]||"")+p.f);
-
- return `
- <article class="card">
-  <div class="image-wrap">
-   <img src="${img}" loading="lazy" alt="${p.n}"
-    onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-   <div class="image-fallback">تصویر محصول</div>
-  </div>
-  <div class="info">
-   <div class="name">${p.n}</div>
-   <div class="desc">${categories.find(c=>c.id===p.c).name}</div>
-   ${variants.length>1?`
-    <select class="variant" id="variant-${products.indexOf(p)}"
-     onchange="updateCardPrice(${products.indexOf(p)})">
-     ${variants.map((v,i)=>`<option value="${i}">${v[0]} - ${money(v[1])}</option>`).join("")}
-    </select>
-    <div class="price" id="price-${products.indexOf(p)}">${money(variants[0][1])}</div>
-   `:`<div class="price">${priceText}</div>`}
-   <button class="add" ${!hasPrice?"disabled":""}
-    onclick="addToCart(${products.indexOf(p)})">
-    ${hasPrice?"+ افزودن به سبد خرید":"به‌زودی"}
-   </button>
-  </div>
- </article>`;
+ const variants=getVariants(p),hasPrice=variants.length>0;
+ const index=products.indexOf(p);
+ const priceText=hasPrice?(variants.length===1?money(variants[0][1]):"انتخاب قیمت و حجم"):"قیمت اعلام نشده";
+ const img=safeImage(p.image,p.f||"",p.c);
+ return `<article class="card">
+  <div class="image-wrap"><img src="${img}" loading="lazy" alt="${p.n}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="image-fallback">تصویر محصول</div></div>
+  <div class="info"><div class="name">${p.n}</div>
+  <div class="desc">${categories.find(c=>c.id===p.c)?.name||""}</div>
+  ${variants.length>1?`<select class="variant" id="variant-${index}" onchange="updateCardPrice(${index})">${variants.map((v,i)=>`<option value="${i}">${v[0]} - ${money(v[1])}</option>`).join("")}</select><div class="price" id="price-${index}">${money(variants[0][1])}</div>`:`<div class="price">${priceText}</div>`}
+  <button class="add" ${!hasPrice?"disabled":""} onclick="addToCart(${index})">${hasPrice?"+ افزودن به سبد خرید":"به‌زودی"}</button></div></article>`;
 }
 
 function updateCardPrice(index){
- const p=products[index];
- const select=document.getElementById("variant-"+index);
+ const p=products[index],select=document.getElementById("variant-"+index);
  const price=document.getElementById("price-"+index);
- if(select&&price)price.textContent=money(p.v[Number(select.value)][1]);
+ if(select&&price)price.textContent=money(getVariants(p)[Number(select.value)][1]);
 }
 
 function addToCart(index){
- const p=products[index];
- const variants=getVariants(p);
+ const p=products[index],variants=getVariants(p);
  if(!variants.length)return;
-
  const select=document.getElementById("variant-"+index);
  const variantIndex=select?Number(select.value):0;
  const variant=variants[variantIndex];
- const key=index+"_"+variantIndex;
-
- if(!cart[key])cart[key]={index,productId:p.id,variantIndex,name:p.n,variant:variant[0],price:variant[1],qty:0};
- cart[key].qty++;
- updateCart();
+ const key=String(p.id??index)+"_"+variantIndex;
+ if(!cart[key])cart[key]={index,productId:p.id??null,variantIndex,name:p.n,variant:variant[0],price:variant[1],qty:0};
+ cart[key].qty++;updateCart();
 }
 
 function changeQty(key,amount){
@@ -498,79 +355,65 @@ function updateCart(){
  const entries=Object.entries(cart);
  const count=entries.reduce((s,[k,v])=>s+v.qty,0);
  const total=entries.reduce((s,[k,v])=>s+v.qty*v.price,0);
-
- document.getElementById("count").textContent=
- new Intl.NumberFormat("fa-IR").format(count)+" عدد محصول";
+ document.getElementById("count").textContent=new Intl.NumberFormat("fa-IR").format(count)+" عدد محصول";
  document.getElementById("total").textContent=money(total);
  document.getElementById("finalTotal").textContent=money(total);
-
  document.getElementById("cartItems").innerHTML=entries.length?
- entries.map(([key,v])=>`
-  <div class="item">
-   <div>
-    <b>${v.name}</b><br>
-    <small>${v.variant} · ${money(v.price)}</small>
-   </div>
-   <div class="qty">
-    <button onclick="changeQty('${key}',-1)">−</button>
-    ${new Intl.NumberFormat("fa-IR").format(v.qty)}
-    <button onclick="changeQty('${key}',1)">+</button>
-   </div>
-  </div>
- `).join(""):'<div class="cart-empty">سبد خرید شما خالی است.</div>';
+ entries.map(([key,v])=>`<div class="item"><div><b>${v.name}</b><br><small>${v.variant} · ${money(v.price)}</small></div><div class="qty"><button onclick="changeQty('${key}',-1)">−</button>${new Intl.NumberFormat("fa-IR").format(v.qty)}<button onclick="changeQty('${key}',1)">+</button></div></div>`).join(""):'<div class="cart-empty">سبد خرید شما خالی است.</div>';
 }
 
 function openCart(){document.getElementById("modal").classList.add("show")}
 function closeCart(){document.getElementById("modal").classList.remove("show")}
 
 document.getElementById("search").addEventListener("input",e=>{
- searchText=e.target.value.trim();
- activeCategory="all";
- renderCategories();
- renderMenu();
+ searchText=e.target.value.trim();activeCategory="all";
+ renderCategories();renderMenu();
 });
 
+async function loadConfig(){
+ const response=await fetch(CONFIG_URL+"?t="+Date.now(),{cache:"no-store"});
+ if(!response.ok)throw new Error("فایل api-config.json پیدا نشد.");
+ const config=await response.json();
+ const url=config.api_base||config.api_url||config.API_BASE;
+ if(!url)throw new Error("آدرس API در فایل تنظیمات وجود ندارد.");
+ const parsed=new URL(url);
+ if(parsed.protocol!=="https:" && parsed.hostname!=="localhost" && parsed.hostname!=="127.0.0.1")throw new Error("آدرس API معتبر نیست.");
+ API_BASE=parsed.origin;
+}
 
 async function loadRemoteMenu(){
  try{
-  if(!API_BASE || API_BASE.includes("https://exclusive-surfing-refers-carlo.trycloudflare.com")) throw new Error("آدرس سرور تنظیم نشده است.");
-  const [catResponse, productResponse] = await Promise.all([
-   fetch(API_BASE + "/api/v1/categories"),
-   fetch(API_BASE + "/api/v1/products")
+  await loadConfig();
+  const [catResponse,productResponse]=await Promise.all([
+   fetch(API_BASE+"/api/v1/categories"),
+   fetch(API_BASE+"/api/v1/products")
   ]);
-  if(!catResponse.ok || !productResponse.ok) throw new Error("دریافت منو از سرور ناموفق بود.");
-  const remoteCategories = await catResponse.json();
-  const remoteProducts = await productResponse.json();
-  if(!Array.isArray(remoteCategories) || !Array.isArray(remoteProducts)) throw new Error("ساختار پاسخ سرور معتبر نیست.");
+  if(!catResponse.ok||!productResponse.ok)throw new Error("دریافت منو از سرور ناموفق بود.");
+  const remoteCategories=await catResponse.json();
+  const remoteProducts=await productResponse.json();
+  if(!Array.isArray(remoteCategories)||!Array.isArray(remoteProducts))throw new Error("ساختار پاسخ سرور معتبر نیست.");
 
-  categories = remoteCategories.map(c=>({id:"c"+c.id,name:c.name,serverId:c.id}));
-  apiConnected = true;
-  products = remoteProducts.map(p=>({
-   id:p.id,
-   c:"c"+p.category_id,
-   n:p.name,
-   p:p.price,
-   f:(p.image||"").split("/").pop(),
-   image:p.image||"",
-   v:(p.variants||[]).map(v=>[v.label,v.price])
+  const newCategories=remoteCategories.map(c=>({id:"c"+c.id,name:c.name,serverId:c.id}));
+  const newProducts=remoteProducts.map(p=>({
+   id:p.id,c:"c"+p.category_id,n:p.name,p:p.price,
+   f:(p.image||"").split("/").pop(),image:p.image||"",
+   v:Array.isArray(p.variants)?p.variants.map(v=>[v.label,v.price]):undefined
   }));
-  renderCategories();
-  renderMenu();
-  updateCart();
+  if(newCategories.length===0||newProducts.length===0)throw new Error("منوی دریافتی خالی است.");
+
+  categories=newCategories;products=newProducts;
+  apiConnected=true;renderCategories();renderMenu();updateCart();
+  setStatus("اتصال به منوی کافه برقرار است ✓",true);
  }catch(error){
-  console.error(error);
-  apiConnected = false;
-  renderCategories();
-  renderMenu();
-  updateCart();
-  const message=document.getElementById("checkoutMessage");
-  if(message) message.textContent="ارتباط با سرور برقرار نشد؛ منوی ذخیره‌شده نمایش داده می‌شود. ثبت سفارش فعلاً در دسترس نیست.";
+  console.error("Menu loading error:",error);
+  apiConnected=false;
+  renderCategories();renderMenu();updateCart();
+  setStatus("اتصال به سرور برقرار نشد؛ منوی محلی نمایش داده می‌شود.");
  }
 }
 
 async function submitOrder(){
  const entries=Object.values(cart);
- if(!apiConnected){document.getElementById("checkoutMessage").textContent="اتصال سرور برقرار نیست؛ امکان ثبت سفارش وجود ندارد.";return;}
  const message=document.getElementById("checkoutMessage");
  const button=document.getElementById("checkoutButton");
  const customerName=document.getElementById("customerName").value.trim();
@@ -578,12 +421,15 @@ async function submitOrder(){
  const note=document.getElementById("customerNote").value.trim();
 
  if(!entries.length){message.textContent="سبد خرید خالی است.";return;}
- if(!customerName || customerPhone.length<5){
-  message.textContent="لطفاً نام و شماره تماس معتبر وارد کنید.";
-  return;
+ if(!apiConnected||!API_BASE){message.textContent="اتصال سرور برقرار نیست؛ سفارش ثبت نشد.";return;}
+ if(entries.some(item=>item.productId===null||item.productId===undefined)){
+  message.textContent="شناسه معتبر محصول از سرور دریافت نشده است.";return;
  }
- button.disabled=true;
- button.textContent="در حال ثبت سفارش...";
+ if(!customerName||customerPhone.replace(/\D/g,"").length<5){
+  message.textContent="لطفاً نام و شماره تماس معتبر وارد کنید.";return;
+ }
+
+ button.disabled=true;button.textContent="در حال ثبت سفارش...";
  message.textContent="در حال ارسال سفارش به کافه...";
  try{
   const response=await fetch(API_BASE+"/api/v1/orders",{
@@ -600,22 +446,27 @@ async function submitOrder(){
     }))
    })
   });
-  const result=await response.json();
-  if(!response.ok) throw new Error(result.detail||"ثبت سفارش انجام نشد.");
+  const result=await response.json().catch(()=>({}));
+  if(!response.ok)throw new Error(result.detail||result.message||"ثبت سفارش انجام نشد.");
+  const orderId=result.id??result.order_id;
+  const total=result.total_price??result.total??entries.reduce((s,x)=>s+x.price*x.qty,0);
+  if(orderId===undefined)throw new Error("پاسخ سرور شناسه سفارش ندارد؛ وضعیت سفارش را از پنل بررسی کنید.");
   Object.keys(cart).forEach(key=>delete cart[key]);
   updateCart();
   document.getElementById("customerName").value="";
   document.getElementById("customerPhone").value="";
   document.getElementById("customerNote").value="";
-  message.textContent="سفارش شما با شماره "+new Intl.NumberFormat("fa-IR").format(result.id)+" ثبت شد. مبلغ: "+money(result.total_price);
+  message.textContent="سفارش شما با شماره "+new Intl.NumberFormat("fa-IR").format(orderId)+" ثبت شد. مبلغ: "+money(total);
  }catch(error){
   message.textContent="خطا در ثبت سفارش: "+error.message;
  }finally{
-  button.disabled=false;
-  button.textContent="ثبت نهایی سفارش";
+  button.disabled=false;button.textContent="ثبت نهایی سفارش";
  }
 }
 
+renderCategories();
+renderMenu();
+updateCart();
 loadRemoteMenu();
 </script>
 </body>
