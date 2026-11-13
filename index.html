@@ -314,11 +314,14 @@ function renderMenu(){
  document.getElementById("emptySearch").style.display=visibleCount?"none":"block";
 }
 
+/* ENERGY_STATIC_IMAGE_MAP_START */
+const PRODUCT_IMAGE_MAP = {"آمریکانو":"images/uploads/products/367e00321fb34daab780f80b6201b5b3.png"};
+/* ENERGY_STATIC_IMAGE_MAP_END */
 function productCard(p){
  const variants=getVariants(p),hasPrice=variants.length>0;
  const index=products.indexOf(p);
  const priceText=hasPrice?(variants.length===1?money(variants[0][1]):"انتخاب قیمت و حجم"):"قیمت اعلام نشده";
- const img=safeImage(p.image,p.f||"",p.c);
+ const img=PRODUCT_IMAGE_MAP[p.n]||safeImage(p.image,p.f||"",p.c);
  return `<article class="card">
   <div class="image-wrap"><img src="${img}" loading="lazy" alt="${p.n}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="image-fallback">تصویر محصول</div></div>
   <div class="info"><div class="name">${p.n}</div>
