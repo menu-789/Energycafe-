@@ -266,6 +266,9 @@ function setStatus(message,good=false){
 
 function safeImage(image,fallback,c){
  if(image && /^https?:\/\//i.test(image))return image;
+ if(image && image.startsWith("/media/")){
+   return (API_BASE || "").replace(/\/+$/,"") + image;
+ }
  if(image && !image.startsWith("data:") && !image.startsWith("//"))return image;
  return (imageFolders[c]||"")+fallback;
 }
@@ -321,7 +324,7 @@ function productCard(p){
  const variants=getVariants(p),hasPrice=variants.length>0;
  const index=products.indexOf(p);
  const priceText=hasPrice?(variants.length===1?money(variants[0][1]):"انتخاب قیمت و حجم"):"قیمت اعلام نشده";
- const img=PRODUCT_IMAGE_MAP[p.n]||safeImage(p.image,p.f||"",p.c);
+ const img=(p.image && (/^https?:\/\//i.test(p.image)||p.image.startsWith("/media/"))) ? safeImage(p.image,p.f||"",p.c) : (PRODUCT_IMAGE_MAP[p.n]||safeImage(p.image,p.f||"",p.c));
  return `<article class="card">
   <div class="image-wrap"><img src="${img}" loading="lazy" alt="${p.n}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="image-fallback">تصویر محصول</div></div>
   <div class="info"><div class="name">${p.n}</div>
@@ -388,8 +391,8 @@ async function loadRemoteMenu(){
  try{
   await loadConfig();
   const [catResponse,productResponse]=await Promise.all([
-   fetch(API_BASE+"/api/v1/categories"),
-   fetch(API_BASE+"/api/v1/products")
+   fetch(API_BASE+"/api/v1/categories",{cache:"no-store"}),
+   fetch(API_BASE+"/api/v1/products",{cache:"no-store"})
   ]);
   if(!catResponse.ok||!productResponse.ok)throw new Error("دریافت منو از سرور ناموفق بود.");
   const remoteCategories=await catResponse.json();
