@@ -475,5 +475,18 @@ renderMenu();
 updateCart();
 loadRemoteMenu();
 </script>
+<script id="OFFLINE_IMAGE_CACHE_REGISTER">
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function () {
+        navigator.serviceWorker.register("./sw.js", { scope: "./" })
+            .then(function (registration) {
+                console.log("ENERGY CAFE offline cache enabled", registration.scope);
+            })
+            .catch(function (error) {
+                console.warn("Offline cache registration failed:", error);
+            });
+    });
+}
+</script>
 </body>
 </html>
